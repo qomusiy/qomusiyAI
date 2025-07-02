@@ -26,7 +26,7 @@ app.post('/api/chat', async (req, res) => {
         const aiText = data.candidates?.[0]?.content?.parts?.[0]?.text || 'No response.';
         res.json({ text: aiText });
     } catch (err) {
-        console.error(err);
+        console.error('Error from Gemini API:', err.message);
         res.status(500).json({ text: 'Error calling Gemini API' });
     }
 });
